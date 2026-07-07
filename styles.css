@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #2f3e46;
+}
+
+body.page-index {
+  background: linear-gradient(135deg, #eef7ff, #fff3d6);
+  color: #1f2937;
+}
+
+body.page-cuestionario {
+  background: linear-gradient(135deg, #f7e7ff, #fff1d6);
+}
+
+body.page-musculos {
+  background: linear-gradient(135deg, #eef7ff, #fff3d6);
+}
+
+h1 {
+  margin-top: 0;
+  text-align: center;
+  color: #1d4ed8;
+}
+
+.page-index .contenedor {
+  width: min(92vw, 760px);
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 28px;
+  text-align: center;
+}
+
+.page-index p {
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.actividades {
+  display: grid;
+  gap: 14px;
+}
+
+.actividad {
+  display: block;
+  text-decoration: none;
+  padding: 14px 16px;
+  border: 2px solid #bfdbfe;
+  border-radius: 12px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: bold;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.actividad:hover {
+  background: #dbeafe;
+  border-color: #60a5fa;
+  transform: translateY(-1px);
+}
+
+.page-cuestionario .contenedor {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: min(90vw, 760px);
+  padding: 24px;
+}
+
+.intro {
+  text-align: center;
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+}
+
+.imagen {
+  display: block;
+  margin: 0 auto 16px;
+  max-width: 280px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.pregunta {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 14px;
+  color: #000000;
+}
+
+.opciones {
+  display: grid;
+  gap: 10px;
+}
+
+.opcion {
+  padding: 12px 14px;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: left;
+  color: #2563eb;
+}
+
+.opcion:hover {
+  background: #e0f2fe;
+  border-color: #60a5fa;
+}
+
+.opcion.correcta {
+  background: #dcfce7;
+  border-color: #22c55e;
+}
+
+.opcion.incorrecta {
+  background: #fee2e2;
+  border-color: #ef4444;
+}
+
+.feedback {
+  margin-top: 14px;
+  font-weight: bold;
+  min-height: 24px;
+}
+
+.acciones {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.resultado {
+  display: none;
+  text-align: center;
+}
+
+.resultado h2 {
+  color: #1d4ed8;
+}
+
+.resultado p {
+  font-size: 1.1rem;
+}
+
+.page-musculos .contenedor {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: min(94vw, 900px);
+  padding: 24px;
+}
+
+.page-musculos .intro {
+  margin-bottom: 16px;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.musculo {
+  padding: 10px 12px;
+  border: 2px solid #2563eb;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-weight: bold;
+  text-align: center;
+  cursor: grab;
+  user-select: none;
+}
+
+.musculo:active {
+  cursor: grabbing;
+}
+
+.musculo.oculto {
+  display: none;
+}
+
+.imagen-container {
+  position: relative;
+  border: 2px solid #dbeafe;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f8fbff;
+}
+
+.imagen-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.zona {
+  position: absolute;
+  width: 110px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  border: 2px dashed #60a5fa;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #1e3a8a;
+  pointer-events: auto;
+}
+
+.zona.completada {
+  border-style: solid;
+  background: rgba(34, 197, 94, 0.16);
+  border-color: #22c55e;
+}
+
+.zona .nombre {
+  pointer-events: none;
+}
+
+.page-musculos .feedback {
+  text-align: center;
+  color: #2563eb;
+}
+
+.boton-reset {
+  display: block;
+  margin: 12px auto 0;
+}
+
+@media (max-width: 760px) {
+  .panel {
+    grid-template-columns: 1fr;
+  }
+
+  .lista {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .musculo {
+    flex: 1 1 calc(50% - 10px);
+  }
+}
